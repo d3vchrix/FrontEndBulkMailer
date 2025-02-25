@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="img/favicon.svg">
+    <title>Email Template - BulkMailer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Optic One</title>
+</head>
+
+<header>
+    <div id="brand" aria-label="navigation bar">
+        <div class="brand-container">
+            <a class="logo" href="#"><img src="img/favicon.svg" /></a>
+            <div class="account">
+                <a href="#"><span>John Doe</span><i class="fa-solid fa-user"></i></a>
+                <a asp-controller="Auth" asp-action="Logout"><span>Logout</span><i
+                        class="fa-solid fa-right-from-bracket"></i></a>
+                <!-- <a href="Auth.html">Login</a> -->
+            </div>
+        </div>
+    </div>
+
+    <div id="nav-menu" aria-label="navigation bar">
+        <div class="menu-container">
+            <div class="nav-start">
+                <nav class="menu">
+                    <ul class="menu-bar">
+                        <li>
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index" href="Index.html">
+                                <span><i class="fa-solid fa-house"></i> Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" asp-area="" asp-controller="Compose" asp-action="Index"
+                                href="Compose.html">
+                                <span><i class="fa-solid fa-envelope"></i> Compose</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" asp-area="" asp-controller="Compose" asp-action="Index"
+                                href="Template.html">
+                                <span><i class="fa-solid fa-cubes"></i> Template</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" asp-area="" asp-controller="Compose" asp-action="Index"
+                                href="Contacts.html">
+                                <span><i class="fa-solid fa-address-card"></i> Contacts</span>
+                            </a>
+
+                        <!-- <li>
+                            <button class="nav-link dropdown-btn" data-dropdown="dropdown1" aria-haspopup="true"
+                                aria-expanded="false">
+                                <span> <i class="fa-solid fa-newspaper"></i>Templates</span>
+                            </button>
+                            <div id="dropdown1" class="dropdown">
+                                <ul role="menu">
+                                    <li role="menuitem">
+                                        <a class="dropdown-link" asp-area="" asp-controller="Home" asp-action="Index">
+                                            <span class="dropdown-link-title">Greetings</span>
+                                        </a>
+                                        <a class="dropdown-link" asp-area="" asp-controller="EmailTemplates"
+                                            asp-action="Index" href="Templates/Email.html">
+                                            <span class="dropdown-link-title">Email</span>
+                                        </a>
+                                        <a class="dropdown-link" asp-area="" asp-controller="Signatures"
+                                            asp-action="Index">
+                                            <span class="dropdown-link-title">Signature</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li> -->
+                        <li>
+                            <button class="nav-link dropdown-btn" data-dropdown="dropdown2" aria-haspopup="true"
+                                aria-expanded="false">
+                                <span><i class="fa-solid fa-cubes"></i>Cards</span>
+                            </button>
+                            <div id="dropdown2" class="dropdown">
+                                <ul role="menu">
+                                    <li role="menuitem">
+                                        <a class="dropdown-link" asp-area="" asp-controller="Attachments"
+                                            asp-action="Index">
+                                            <span class="dropdown-link-title">Attachments</span>
+                                        </a>
+                                        <a class="dropdown-link" asp-area="" asp-controller="AttachmentTypes"
+                                            asp-action="Index">
+                                            <span class="dropdown-link-title">Attachments Types</span>
+                                        </a>
+                                        <a class="dropdown-link" asp-area="" asp-controller="DocumentTypes"
+                                            asp-action="Index">
+                                            <span class="dropdown-link-title">Document Types</span>
+                                        </a>
+                                        <a class="dropdown-link" asp-area="" asp-controller="Groups" asp-action="Index">
+                                            <span class="dropdown-link-title">Groups</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <button class="nav-link dropdown-btn" data-dropdown="dropdown3" aria-haspopup="true"
+                                aria-expanded="false">
+                                <span><i class="fa-solid fa-user-group"></i>Customers</span>
+                            </button>
+                            <div id="dropdown3" class="dropdown">
+                                <ul role="menu">
+                                    <li role="menuitem">
+                                        <a class="dropdown-link" asp-area="" asp-controller="Customers"
+                                            asp-action="Index">
+                                            <span class="dropdown-link-title">Create</span>
+                                        </a>
+                                        <a class="dropdown-link" asp-area="" asp-controller="CustomerSettings"
+                                            asp-action="Index">
+                                            <span class="dropdown-link-title">Settings</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="nav-end">
+                <div class="right-container">
+                    <button id="hamburger" aria-label="hamburger" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="body-container">
+    <div class="content-container">
+        <h2>Email Template Manager</h2>
+
+        <div class="mb-3">
+            <button class="btn btn-secondary" data-bs-toggle="collapse" data-bs-target="#optionalFields">Toggle Optional Fields</button>
+        </div>
+        
+        <div id="optionalFields" class="collapse mb-3">
+            <div class="mb-3">
+                <label for="receiver" class="form-label">Receiver</label>
+                <input type="email" class="form-control" id="receiver" placeholder="Enter receiver email">
+            </div>
+            <div class="mb-3">
+                <label for="cc" class="form-label">CC</label>
+                <input type="email" class="form-control" id="cc" placeholder="Enter CC email">
+            </div>
+            <div class="mb-3">
+                <label for="attachment" class="form-label">Attachment</label>
+                <input type="file" class="form-control" id="attachment">
+            </div>
+        </div>
+
+        <form id="templateForm">
+            <input type="hidden" id="templateId">
+            <div class="mb-3">
+                <label for="templateName" class="form-label">Email Template Name</label>
+                <input type="text" class="form-control" id="templateName" placeholder="Enter template name" required>
+            </div>
+            <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" class="form-control" id="subject" placeholder="Enter subject" required>
+            </div>
+            <div class="mb-3">
+                <label for="emailBody" class="form-label">Body</label>
+                <textarea id="emailBody" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Template</button>
+        </form>
+
+        <h3 class="mt-5">Saved Templates</h3>
+        <table class="table table-bordered mt-3">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Subject</th>
+                    <th class="th-action">Actions</th>
+                </tr>
+            </thead>
+            <tbody id="templateList"></tbody>
+        </table>
+
+    </div>
+</div>
+
+<div class="modal fade" id="signatureModal" tabindex="-1" aria-labelledby="signatureModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="signatureModalLabel">Insert Signature/Greetings</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <textarea id="signatureContent" class="form-control"
+                    placeholder="Enter signature or greetings"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="insertSignature()">Insert</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/760c095f0a.js" crossorigin="anonymous"></script>
+<script src="js/index.js"></script>
+<script src="https://cdn.tiny.cloud/1/1ld2lw3f9cw86wi163l9qz8hdv2xubvptkyl5p5iqw6nlkc5/tinymce/7/tinymce.min.js"
+    referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector: '#emailBody',
+        plugins: 'advlist autolink lists link image charmap print preview anchor',
+        toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat'
+    });
+</script>
+<script>
+    let templates = [];
+
+    document.getElementById('templateForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const id = document.getElementById('templateId').value;
+        const name = document.getElementById('templateName').value;
+        const subject = document.getElementById('subject').value;
+        const body = tinymce.get('emailBody').getContent();
+
+        if (id) {
+            const index = templates.findIndex(t => t.id == id);
+            templates[index] = { id, name, subject, body };
+        } else {
+            templates.push({ id: Date.now().toString(), name, subject, body });
+        }
+
+        renderTemplates();
+        this.reset();
+        tinymce.get('emailBody').setContent('');
+    });
+
+    function renderTemplates() {
+        const list = document.getElementById('templateList');
+        list.innerHTML = '';
+        templates.forEach(template => {
+            list.innerHTML += `
+                    <tr>
+                        <td>${template.name}</td>
+                        <td>${template.subject}</td>
+                        <td>
+                            <div class="crud-buttons">
+                            <button class="btn btn-warning btn-sm m-1" onclick="editTemplate('${template.id}')">Edit</button>
+                            <button class="btn btn-danger btn-sm m-1" onclick="deleteTemplate('${template.id}')">Delete</button>
+                            <div>
+                        </td>
+                    </tr>
+                `;
+        });
+    }
+
+    function editTemplate(id) {
+        const template = templates.find(t => t.id == id);
+        document.getElementById('templateId').value = template.id;
+        document.getElementById('templateName').value = template.name;
+        document.getElementById('subject').value = template.subject;
+        tinymce.get('emailBody').setContent(template.body);
+    }
+
+    function deleteTemplate(id) {
+        templates = templates.filter(t => t.id != id);
+        renderTemplates();
+    }
+
+    function insertSignature() {
+        const signature = document.getElementById('signatureContent').value;
+        tinymce.get('emailBody').execCommand('mceInsertContent', false, signature);
+        document.getElementById('signatureContent').value = '';
+        new bootstrap.Modal(document.getElementById('signatureModal')).hide();
+    }
+</script>
+
+</html>
